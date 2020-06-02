@@ -1,6 +1,7 @@
 <?php
 
 use Pages\Page;
+use Models\Article;
 
 class Bootstrap
 {
@@ -17,9 +18,24 @@ class Bootstrap
                 $page->render('index');
                 break;
             case 'create':
+                $page = new Page();
+                $page->render('create');
+                break;
+            case 'store':
+                $title = filter_input(INPUT_POST, 'title');
+                $text = filter_input(INPUT_POST, 'text');
+                //todo validations with errors
+                $article = new Article();
+                $article->create($title, $text);
+                self::redirect('index');
                 break;
             case 'delete':
                 break;
         }
+    }
+
+    static public function redirect($action)
+    {
+        header('Location:' . $_SERVER['PHP_SELF'] . '?action=' . $action);
     }
 }

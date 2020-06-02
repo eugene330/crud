@@ -22,4 +22,16 @@ class Article
             }
         }
     }
+
+    public function all()
+    {
+        if ($this->db->connect_errno === 0) {
+            $query = "select * from articles";
+            $result = $this->db->query($query);
+            if(!$query){
+                die($this->db->error);
+            }
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+    }
 }

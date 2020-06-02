@@ -15,6 +15,10 @@ class Bootstrap
         switch ($action) {
             case 'index':
                 $page = new Page();
+
+                $article = new Article();
+                $articles = $article->all();
+                $page->articles->$article;
                 $page->render('index');
                 break;
             case 'create':

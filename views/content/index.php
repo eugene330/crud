@@ -4,7 +4,7 @@
         <div class="card-body">
             <a href="?action=create" class="btn btn-success"><i class="fa fa-plus"> Create new article</i></a>
 
-            <table class="table table-striped my-2">
+            <table class="table table-striped my-2 articles">
                 <thead>
                 <tr>
                     <th>id</th>
@@ -24,6 +24,10 @@
                                 <form action="?action=delete" method="post">
                                     <input type="hidden" name="id" value="<?= $article['id'] ?>"/>
                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+                                <form action="?action=update" method="post">
+                                    <input type="hidden" name="id" value="<?= $article['id'] ?>"/>
+                                    <button class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                 </form>
                             </td>
                         </tr>

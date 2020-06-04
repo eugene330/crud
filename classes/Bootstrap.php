@@ -38,6 +38,21 @@ class Bootstrap
                 $article->delete($id);
                 self::redirect('index');
                 break;
+            case 'update':
+                $id = filter_input(INPUT_POST, 'id');
+                $article = new Article();
+                $page = new Page();
+                $page->article = $article->getByid($id);
+                $page->render('update');
+                break;
+            case 'save':
+                $id = filter_input(INPUT_POST, 'id');
+                $title = filter_input(INPUT_POST, 'title');
+                $text = filter_input(INPUT_POST, 'text');
+                $article = new Article();
+                $article->save($id, $title, $text);
+                self::redirect('index');
+                break;
         }
     }
 

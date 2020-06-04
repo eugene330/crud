@@ -4,7 +4,7 @@
         <div class="card-body">
             <a href="?action=create" class="btn btn-success"><i class="fa fa-plus">Create new article</i></a>
 
-            <table class="table-stripped">
+            <table class="table table-striped ">
                 <thead>
                 <tr>
                     <th>id</th>

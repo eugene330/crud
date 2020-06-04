@@ -2,9 +2,9 @@
     <div class="card offset-md-3 col-md-6">
         <div class="card-header">Articles</div>
         <div class="card-body">
-            <a href="?action=create" class="btn btn-success"><i class="fa fa-plus">Create new article</i></a>
+            <a href="?action=create" class="btn btn-success"><i class="fa fa-plus"> Create new article</i></a>
 
-            <table class="table table-striped ">
+            <table class="table table-striped my-2">
                 <thead>
                 <tr>
                     <th>id</th>
@@ -20,7 +20,12 @@
                             <td><?= $article['id'] ?></td>
                             <td><?= $article['title'] ?></td>
                             <td><?= $article['text'] ?></td>
-                            <td></td>
+                            <td>
+                                <form action="?action=delete" method="post">
+                                    <input type="hidden" name="id" value="<?= $article['id'] ?>"/>
+                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

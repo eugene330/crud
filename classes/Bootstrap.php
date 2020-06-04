@@ -33,6 +33,10 @@ class Bootstrap
                 self::redirect('index');
                 break;
             case 'delete':
+                $id = filter_input(INPUT_POST, 'id');
+                $article = new Article();
+                $article->delete($id);
+                self::redirect('index');
                 break;
         }
     }

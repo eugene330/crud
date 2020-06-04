@@ -34,4 +34,11 @@ class Article
             return $result->fetch_all(MYSQLI_ASSOC);
         }
     }
+
+    public function delete($id){
+        if ($this->db->connect_errno === 0) {
+            $query = "delete from articles where id = $id";
+            $this->db->query($query);
+        }
+    }
 }
